@@ -4,7 +4,7 @@
             <div class="toggle-button-cover">
                 <div class="button-cover">
                     <div class="button r" id="button-10">
-                        <input type="checkbox" class="checkbox">
+                        <input @change="changeTempetature" type="checkbox" class="checkbox">
                         <div class="knobs">
                             <span>C</span>
                         </div>
@@ -19,6 +19,15 @@
 <script>
 export default {
     name: 'weather-checkbox',
+    methods: {
+        changeTempetature(e) {
+            if (e.target.checked) {
+                this.$emit('changeTempetature', 'F');
+            } else {
+                this.$emit('changeTempetature', 'C');
+            }
+        }
+    }
 };
 </script>
 

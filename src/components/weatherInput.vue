@@ -1,11 +1,20 @@
 <template>
-    <input class="position-relative border-0" id="input" type="text">
-    <label for="input"><img class="position-absolute" src="@/../public/img/search.png" alt=""></label>
+    <div class="position-relative">
+        <label class="mx-2" for="input"><img src="@/../public/img/map.png" alt=""></label>
+        <input ref="checkbox" @keyup.enter="checkInput" class="border-0" id="input" type="text">
+        <img @click="checkInput" class="position-absolute" src="@/../public/img/search.png" alt="">
+    </div>
 </template>
 
 <script>
+import { Ref } from 'vue';
 export default {
     name: 'weather-input',
+    methods: {
+        checkInput(e) {
+            this.$emit('getNewData', e.target.value);
+        }
+    }
 }
 </script>
 
@@ -20,7 +29,20 @@ input {
 }
 
 img {
-    top: 65px;
-    right: 50px;
+    cursor: pointer;
+    top: 20px;
+    right: 20px;
+}
+
+@media(max-width: 720px) {
+    input {
+        width: 400px;
+    }
+}
+
+@media(max-width: 510px) {
+    input {
+        width: 220px;
+    }
 }
 </style>
