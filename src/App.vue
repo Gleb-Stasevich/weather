@@ -266,6 +266,7 @@ export default {
       } catch (err) {
         /** Показываем модальное окно */
         document.querySelector('.open-my-modal').click();
+        console.log(err);
       }
     },
 
