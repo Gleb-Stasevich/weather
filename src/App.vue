@@ -161,7 +161,7 @@ export default {
 
 
       try {
-        const promise = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=4b5755b852da48b0a37203922230705&q=${city}&days=2&aqi=yes&alerts=no`);
+        const promise = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=4b5755b852da48b0a37203922230705&q=${city}&days=2&aqi=yes&alerts=no`);
         const response = await promise.json();
 
         /** currentWeather data 
@@ -266,6 +266,7 @@ export default {
       } catch (err) {
         /** Показываем модальное окно */
         document.querySelector('.open-my-modal').click();
+        console.log(err);
       }
     },
 
